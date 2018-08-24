@@ -1,0 +1,38 @@
+<%- include header %>
+<body>
+    <div class="box">
+            <p>login</p>
+        <div class="box-content">
+            <form action="/login" method="post">
+                <div class="formInput">
+                    <label for="username">username</label>
+                    <input type="text" name="username">
+                </div>
+                <div class="formInput">
+                    <label for="password">password</label>
+                    <input type="text" name="password">
+                </div>
+                <div class="formInput">
+                    <button class="myBtn">Giriş Yap</button>
+                </div>
+            </form>
+                <%if (typeof status != "undefined") { %>
+                    <% if (status == "true") { %>
+                        <div class="success">
+                            <p>Giriş Başarılı</p>
+                            <script>
+                                    window.setTimeout(function(){
+                                        window.location = "/";
+                                    }, 1000);
+                            </script>
+                        </div>
+                    <% }else { %>
+                        <div class="error">
+                            <p>Giriş Başarısız</p>
+                        </div>
+                    <% } %>
+                <% } %>
+        </div>
+    </div>
+</body>
+<%- include footer %>

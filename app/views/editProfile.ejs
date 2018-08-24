@@ -1,0 +1,42 @@
+<%- include header %>
+<body>
+    <div class="box2">
+            <p>Edit Profile</p>
+        <div class="box-content">
+            <form action="/editProfile" method="post">
+                <div class="formInput">
+                    <label for="username">username</label>
+                    <input type="text" name="username" value="<%- user.username; %>">
+                </div>
+                <div class="formInput">
+                    <label for="password">password</label>
+                    <input type="text" name="password" value="<%- user.password; %>">
+                </div>
+                <div class="formInput">
+                    <label for="name">name</label>
+                    <input type="text" name="name" value="<%- user.name; %>">
+                </div>
+                <div class="formInput">
+                    <label for="surname">surname</label>
+                    <input type="text" name="surname" value="<%- user.surname; %>">
+                </div>
+                <div class="formInput">
+                    <button class="myBtn">Bilgileri Kaydet</button>
+                </div>
+            </form>
+                <%if (typeof status != "undefined") { %>
+                    <% if (status == "true") { %>
+                        <div class="success">
+                            <p>Düzenleme Başarılı</p>
+                            <script>
+                                    window.setTimeout(function(){
+                                        window.location = "/editProfile";
+                                    }, 1000);
+                            </script>
+                        </div>
+                    <% } %>
+                <% } %>
+        </div>
+    </div>
+</body>
+<%- include footer %>
